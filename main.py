@@ -28,27 +28,43 @@ class Person(BaseModel):
         ...
         , min_length = 1
         , max_length = 50
+        , example = 'Tony'
     )
 
     last_name: str = Field(
         ...
         , min_length = 1
         , max_length = 50
+        , example = 'Stark'
     )
 
     age: int = Field(
         ...
         , gt = 0
         , le = 115
+        , example = 27
     )
 
     hair_color: Optional[HairColor] = Field(
         default = None
+        , example = 'black'
     )
 
     is_married: Optional[bool] = Field(
         default = None
+        , example = True
     )
+
+    # class Config:
+    #     schema_extra = {
+    #         'example': {
+    #             'first_name': 'Bruce'
+    #             , 'last_name': 'Wayne'
+    #             , 'age': 21
+    #             , 'hair_color': 'blonde'
+    #             , 'is_married': False
+    #         }
+    #     }
 
 @app.get('/')
 def home():
