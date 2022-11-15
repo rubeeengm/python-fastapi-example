@@ -86,11 +86,13 @@ def show_person(
         , max_length = 50
         , title = 'Person Name'
         , description = "This is the person name. It's between 1 and 50 characters"
+        , example = 'Rocio'
     )
     , age: str = Query(
         ...
         , title = 'Person Age'
         , description = "This is the person age. It's required"
+        , example = 25
     )
 ):
     return {
@@ -106,6 +108,7 @@ def show_detail_person(
         ,  gt = 0
         , title = 'Person Id'
         , description = "This is the person id. It's required and must be more than zero"
+        , example = 123
     )
 ):
     return {
@@ -120,6 +123,7 @@ def update_person(
         ,  gt = 0
         , title = 'Person Id'
         , description = "This is the person id. It's required and must be more than zero"
+        , example = 123
     )
     , person: Person = Body(...)
     , location: Location = Body(...)
